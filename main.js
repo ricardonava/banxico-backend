@@ -9,12 +9,12 @@ const expressRoutes = (parseResult) => {
 
   const currencies = {};
 
-  ['EUR', 'CAD', 'USDFix', 'GBP', 'YPN', 'USD'].forEach((currencyName, index) => {
-    currencies[currencyName] = {
-      valor: exchangeArray[index]['bm:Obs'][0].$.OBS_VALUE,
-      descripcion: exchangeArray[index].$.TITULO,
-      periodo: exchangeArray[index]['bm:Obs'][0].$.TIME_PERIOD,
-      serie: exchangeArray[index].$.IDSERIE,
+  ['EUR', 'CAD', 'USDFix', 'GBP', 'YPN', 'USD'].forEach((name, index) => {
+    currencies[name] = {
+      value: exchangeArray[index]['bm:Obs'][0].$.OBS_VALUE,
+      description: exchangeArray[index].$.TITULO,
+      period: exchangeArray[index]['bm:Obs'][0].$.TIME_PERIOD,
+      series: exchangeArray[index].$.IDSERIE,
     };
   });
 
