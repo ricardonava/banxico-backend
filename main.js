@@ -9,8 +9,8 @@ const expressRoutes = (parseResult) => {
 
   const currencies = {};
 
-  ['EUR', 'CAD', 'USDFix', 'GBP', 'YPN', 'USD'].map((item, index) => {
-    currencies[item] = {
+  ['EUR', 'CAD', 'USDFix', 'GBP', 'YPN', 'USD'].forEach((currencyName, index) => {
+    currencies[currencyName] = {
       valor: exchangeArray[index]['bm:Obs'][0].$.OBS_VALUE,
       descripcion: exchangeArray[index].$.TITULO,
       periodo: exchangeArray[index]['bm:Obs'][0].$.TIME_PERIOD,
