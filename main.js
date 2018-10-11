@@ -28,8 +28,8 @@ const expressRoutes = (parseResult) => {
 
   app.get('/', (req, res) => res.json(currencies));
 
-  app.listen(3005, () => console.log('Example app listening on port 3005!'));
-  // app.listen(process.env.PORT);
+  // app.listen(3005, () => console.log('Example app listening on port 3005!'));
+  app.listen(process.env.PORT);
 };
 
 const parseXML = (xml) => {
