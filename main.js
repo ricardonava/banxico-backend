@@ -27,23 +27,18 @@ const parseXML = xml => {
 
 const expressRoutes = parseResult => {
   const exchangeArray = parseResult.CompactData['bm:DataSet'][0]['bm:Series'];
-  const currencies = Object.entries({
-    EUR: 0,
-    CAD: 1,
-    USDFix: 2,
-    GBP: 3,
-    YPN: 4,
-    USD: 5
-  }).map(([key, value]) => {
-    return {
-      [key]: {
-        valor: exchangeArray[value]['bm:Obs'][0].$.OBS_VALUE,
-        descripcion: exchangeArray[value].$.TITULO,
-        periodo: exchangeArray[value]['bm:Obs'][0].$.TIME_PERIOD,
-        serie: exchangeArray[value].$.IDSERIE
-      }
+
+  const currencies = {};
+
+  ['EUR', 'CAD', 'USDFix', 'GBP', 'YPN', 'USD'].map((item, index) => {
+    currencies[item] = {
+      valor: exchangeArray[index]['bm:Obs'][0].$.OBS_VALUE,
+      descripcion: exchangeArray[index].$.TITULO,
+      periodo: exchangeArray[index]['bm:Obs'][0].$.TIME_PERIOD,
+      serie: exchangeArray[index].$.IDSERIE
     };
   });
+
   const app = express();
 
   app.use(function(req, res, next) {
