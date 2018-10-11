@@ -1,0 +1,16 @@
+{
+  "name": "banxico-backend",
+  "version": "0.1.0",
+  "description": "Backend for divisa oficial APP",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ricardoNava",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "soap": "^0.25.0",
+    "xml2js": "^0.4.19"
+  }
+}
